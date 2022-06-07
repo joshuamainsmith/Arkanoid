@@ -20,7 +20,7 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
-
+int x = 0;
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
@@ -42,7 +42,10 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	for (int i = 0; i < Graphics::ScreenWidth; i++)
-		gfx.PutPixel(i, 100, 0, 255, 0);
+
+	gfx.PutPixel(x, 100, 0, 255, 0);
+	if (x >= Graphics::ScreenWidth - 1)
+		x = 0;
+	x++;
 
 }
