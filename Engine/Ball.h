@@ -8,7 +8,7 @@ class Ball
 public:
 	Ball();
 	void draw(Graphics& gfx);
-	void update();
+	void update(float dt);
 	bool wallBounce();
 	bool paddleBounce(Vec2& pPos, float width);
 	Vec2 getPos();

@@ -28,6 +28,7 @@
 #include "Ball.h"
 #include "Brick.h"
 #include "Sound.h"
+#include "FrameTimer.h"
 
 
 class Game
@@ -48,6 +49,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	FrameTimer ft;
 	Paddle pad;
 	Ball ball;
 	Brick brick;

@@ -42,9 +42,11 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	pad.update(wnd.kbd);
+	float dt = ft.Mark();
 
-	ball.update();
+	pad.update(wnd.kbd, dt);
+
+	ball.update(dt);
 
 	if (brick.isOverlapping(ball))
 		soundbrick.Play();

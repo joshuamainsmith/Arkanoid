@@ -10,7 +10,7 @@ public:
 	Paddle();
 	Paddle(Vec2 &pos);
 	void draw(Graphics &gfx);
-	void update(const Keyboard & kbd);
+	void update(const Keyboard & kbd, float dt);
 	bool wallBounce();
 	Vec2 getPos();
 	float getwidth();

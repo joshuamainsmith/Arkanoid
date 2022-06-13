@@ -14,10 +14,10 @@ void Ball::draw(Graphics& gfx)
 	gfx.DrawCircle(pos.x, pos.y, radius, Colors::Magenta);
 }
 
-void Ball::update()
+void Ball::update(float dt)
 {
-	pos.x += vel.x;
-	pos.y += vel.y;
+	pos.x += vel.x * dt * 60.0f;
+	pos.y += vel.y * dt * 60.0f;
 }
 
 bool Ball::wallBounce()

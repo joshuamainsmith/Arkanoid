@@ -17,15 +17,15 @@ void Paddle::draw(Graphics& gfx)
 	gfx.DrawRect(pos.x, pos.y, pos.x + width, pos.y + height, Colors::Cyan);
 }
 
-void Paddle::update(const Keyboard& kbd)
+void Paddle::update(const Keyboard& kbd, float dt)
 {
 	if (kbd.KeyIsPressed(VK_LEFT))
 	{
-		pos.x-=speed;
+		pos.x-=speed * dt * 60.0f;
 	}
 	else if (kbd.KeyIsPressed(VK_RIGHT))
 	{
-		pos.x+=speed;
+		pos.x+=speed * dt * 60.0f;
 	}
 }
 
