@@ -23,6 +23,12 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Vec2.h"
+#include "Paddle.h"
+#include "Ball.h"
+#include "Brick.h"
+#include "Sound.h"
+
 
 class Game
 {
@@ -42,5 +48,10 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	Paddle pad;
+	Ball ball;
+	Brick brick;
+	Sound soundpad;
+	Sound soundbrick;
 	/********************************/
 };

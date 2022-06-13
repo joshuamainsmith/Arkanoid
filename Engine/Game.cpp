@@ -20,11 +20,15 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
-int x = 0;
+
+
+
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	soundpad(L"Sounds\\arkpad.wav"),
+	soundbrick(L"Sounds\\arkbrick.wav")
 {
 }
 
@@ -38,14 +42,27 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	pad.update(wnd.kbd);
+
+	ball.update();
+
+	if (brick.isOverlapping(ball))
+		soundbrick.Play();
+
+	pad.wallBounce();
+
+	if (ball.wallBounce())
+		soundpad.Play();
+
+	if (ball.paddleBounce(pad.getPos(), pad.getwidth()))
+		soundpad.Play();
 }
 
 void Game::ComposeFrame()
 {
+	ball.draw(gfx);
 
-	gfx.PutPixel(x, 100, 0, 255, 0);
-	if (x >= Graphics::ScreenWidth - 1)
-		x = 0;
-	x++;
+	brick.draw(gfx);
 
+	pad.draw(gfx);
 }
