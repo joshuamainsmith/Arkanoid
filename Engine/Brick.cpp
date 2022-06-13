@@ -2,7 +2,7 @@
 
 Brick::Brick()
 {
-	for (int y = 0; y < nRow; y++)
+	for (int y = 0; y < level; y++)
 		for (int x = 0; x < nCol; x++)
 		{
 			brick[y][x].left = x * width;
@@ -14,7 +14,7 @@ Brick::Brick()
 
 void Brick::draw(Graphics& gfx)
 {
-	for (int y = 0; y < nRow; y++)
+	for (int y = 0; y < level; y++)
 		for (int x = 0; x < nCol; x++)
 		{
 			if (!brick[y][x].destroyed)
@@ -46,4 +46,33 @@ bool Brick::isOverlapping(Ball& b)
 			}
 		}
 	return hit;
+}
+
+bool Brick::nextLevel()
+{
+	for (int y = 0; y < level; y++)
+		for (int x = 0; x < nCol; x++)
+		{
+			if (!brick[y][x].destroyed)
+				return false;
+		}
+
+	level++;
+
+	return true;
+}
+
+void Brick::init(Ball & b, float dt)
+{
+	for (int y = 0; y < level; y++)
+		for (int x = 0; x < nCol; x++)
+		{
+			brick[y][x].left = x * width;
+			brick[y][x].top = y * height + yPad;
+			brick[y][x].right = (x * width) + width;
+			brick[y][x].bottom = (y * height) + height + yPad;
+			brick[y][x].destroyed = false;
+		}
+	b.setVel(Vec2(b.getVel().x * 60.0f * dt, - b.getVel().y * 60.0f * dt));
+	b.setPos(Vec2(Graphics::ScreenWidth / 2, Graphics::ScreenHeight / 2));
 }

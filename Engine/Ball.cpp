@@ -23,22 +23,22 @@ void Ball::update(float dt)
 bool Ball::wallBounce()
 {
 	bool bounce = false;
-	if (pos.x >= Graphics::ScreenWidth - radius  - vel.x)
+	if (pos.x >= Graphics::ScreenWidth - radius - 1  - vel.x)
 	{
 		vel.x = -vel.x;
 		bounce = true;
 	}
-	if (pos.y >= Graphics::ScreenHeight - radius  - vel.y)
+	if (pos.y >= Graphics::ScreenHeight - radius - 1  - vel.y)
 	{
-		pos.y = 100;
+		pos.y = Graphics::ScreenHeight / 2;
 		bounce = true;
 	}
-	if (pos.x <= radius  - vel.x)
+	if (pos.x <= radius + 1  - vel.x)
 	{
 		vel.x = -vel.x;
 		bounce = true;
 	}
-	if (pos.y <= radius  - vel.y)
+	if (pos.y <= radius + 1  - vel.y)
 	{
 		vel.y = -vel.y;
 		bounce = true;
@@ -63,6 +63,11 @@ bool Ball::paddleBounce(Vec2& pPos, float width)
 Vec2 Ball::getPos()
 {
 	return pos;
+}
+
+void Ball::setPos(Vec2& pos)
+{
+	this->pos = pos;
 }
 
 Vec2 Ball::getVel()

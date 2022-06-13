@@ -12,6 +12,7 @@ public:
 	bool wallBounce();
 	bool paddleBounce(Vec2& pPos, float width);
 	Vec2 getPos();
+	void setPos(Vec2& pos);
 	Vec2 getVel();
 	void setVel(Vec2& vel);
 

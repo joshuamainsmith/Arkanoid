@@ -48,6 +48,9 @@ void Game::UpdateModel()
 
 	ball.update(dt);
 
+	if (brick.nextLevel())
+		brick.init(ball, dt);
+
 	if (brick.isOverlapping(ball))
 		soundbrick.Play();
 
