@@ -18,4 +18,5 @@ public:
 private:
 	Vec2 pos;
 	Vec2 vel;
+	int radius = 7;
 };

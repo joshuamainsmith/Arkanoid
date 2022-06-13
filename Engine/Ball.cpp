@@ -11,7 +11,7 @@ Ball::Ball()
 
 void Ball::draw(Graphics& gfx)
 {
-	gfx.DrawCircle(pos.x, pos.y, 7, Colors::Magenta);
+	gfx.DrawCircle(pos.x, pos.y, radius, Colors::Magenta);
 }
 
 void Ball::update()
@@ -23,22 +23,22 @@ void Ball::update()
 bool Ball::wallBounce()
 {
 	bool bounce = false;
-	if (pos.x >= Graphics::ScreenWidth - 8 - vel.x)
+	if (pos.x >= Graphics::ScreenWidth - radius  - vel.x)
 	{
 		vel.x = -vel.x;
 		bounce = true;
 	}
-	if (pos.y >= Graphics::ScreenHeight - 8 - vel.y)
+	if (pos.y >= Graphics::ScreenHeight - radius  - vel.y)
 	{
 		pos.y = 100;
 		bounce = true;
 	}
-	if (pos.x <= 8 - vel.x)
+	if (pos.x <= radius  - vel.x)
 	{
 		vel.x = -vel.x;
 		bounce = true;
 	}
-	if (pos.y <= 8 - vel.y)
+	if (pos.y <= radius  - vel.y)
 	{
 		vel.y = -vel.y;
 		bounce = true;
@@ -49,7 +49,7 @@ bool Ball::wallBounce()
 
 bool Ball::paddleBounce(Vec2& pPos, float width)
 {
-	if ((pPos.x < pos.x) && (pPos.y < pos.y) && (pPos.x + width > pos.x))
+	if ((pPos.x <= pos.x) && (pPos.y <= pos.y + radius ) && (pPos.x + width >= pos.x) && (pPos.y + 20 >= pos.y - radius ))
 	{
 		vel.y = -vel.y;
 		float halfpad = (pPos.x + (width / 2.0f));
