@@ -52,7 +52,9 @@ bool Ball::wallBounce()
 
 bool Ball::paddleBounce(Vec2& pPos, float width)
 {
-	if ((pPos.x <= pos.x) && (pPos.y <= pos.y + radius ) && (pPos.x + width >= pos.x) && (pPos.y + 20 >= pos.y - radius ))
+	if ((pPos.x <= pos.x) && (pPos.y <= pos.y + radius ) && 
+		(pPos.x + width >= pos.x) && (pPos.y + 20 >= pos.y - radius ) && 
+		(vel.y > 0.0f))
 	{
 		vel.y = -vel.y;
 		float halfpad = (pPos.x + (width / 2.0f));

@@ -73,6 +73,6 @@ void Brick::init(Ball & b, float dt)
 			brick[y][x].bottom = (y * height) + height + yPad;
 			brick[y][x].destroyed = false;
 		}
-	b.setVel(Vec2(b.getVel().x * 60.0f * dt, - b.getVel().y * 60.0f * dt));
+	b.setVel(Vec2(b.getVel().x * 60.0f * dt, b.getVel().y * 60.0f * dt));
 	b.setPos(Vec2(Graphics::ScreenWidth / 2, Graphics::ScreenHeight / 2));
 }
