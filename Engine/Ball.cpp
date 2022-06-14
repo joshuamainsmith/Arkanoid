@@ -23,23 +23,26 @@ void Ball::update(float dt)
 bool Ball::wallBounce()
 {
 	bool bounce = false;
-	if (pos.x >= Graphics::ScreenWidth - radius - 1  - vel.x)
+	if (pos.x >= Graphics::ScreenWidth - radius)
 	{
 		vel.x = -vel.x;
+		pos.x -= radius;
 		bounce = true;
 	}
-	if (pos.y >= Graphics::ScreenHeight - radius - 1  - vel.y)
+	if (pos.y >= Graphics::ScreenHeight - radius)
 	{
 		pos.y = Graphics::ScreenHeight / 2;
 		bounce = true;
 	}
-	if (pos.x <= radius + 1  - vel.x)
+	if (pos.x <= radius)
 	{
+		pos.x += radius;
 		vel.x = -vel.x;
 		bounce = true;
 	}
-	if (pos.y <= radius + 1  - vel.y)
+	if (pos.y <= radius)
 	{
+		pos.y += radius;
 		vel.y = -vel.y;
 		bounce = true;
 	}
