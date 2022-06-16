@@ -56,8 +56,8 @@ bool Brick::nextLevel()
 			if (!brick[y][x].destroyed)
 				return false;
 		}
-
 	level++;
+	level = min(nRow, level);
 
 	return true;
 }
