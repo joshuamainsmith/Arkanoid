@@ -21,6 +21,6 @@ private:
 	float width = 50;
 	float height = 20;
 	float yPad = 20;
-	int level = 1;
+	int level = 4;
 
 };
