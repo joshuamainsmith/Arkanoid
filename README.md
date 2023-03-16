@@ -29,13 +29,16 @@ A recreation of Arkanoid, a brick breaker game using a paddle and ball
 ### RectF
 A class that represents the idea of a rectangle. Utilises the vector class to obtain 2D vector arrays to define rectangular dimensions. This is done with the ```RectF()``` constructor and its wrappers. The member function ```isOverlappingWith()``` checks if two rectangles are overlapping and the member variable ```bool destroyed``` is toggled when the ball collides with a rectangle (within a given position)
 
-### Ball
+### Brick
+This class takes care of the drawing routine for bricks with the ```draw(Graphics& gfx)``` member function, which draws pixels to the screen over the given range with ```PutPixel()```. Also, a check for brick-ball collision and a total remaining brick check are defined here.
+TODO: describe drawing routine in detail
 
+### Ball
+The vector class is utilized here for the balls position and velocity, ```Vec2 pos``` and ```Vec2 vel```. 
+TODO: describe drawing routine in detail
 
 ### Paddle
 
-
-### Brick
 
 ## Imported Framework Classes
 
