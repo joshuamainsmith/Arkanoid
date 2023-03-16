@@ -23,42 +23,42 @@ A recreation of Arkanoid, a brick breaker game using a paddle and ball
 
 ## Custom Classes
 
-# Game
+### Game
 
 
-# RectF
+### RectF
 A class that represents the idea of a rectangle. Utilises the vector class to obtain 2D vector arrays to define rectangular dimensions. This is done with the ```RectF()``` constructor and its wrappers. The member function ```isOverlappingWith()``` checks if two rectangles are overlapping and the member variable ```bool destroyed``` is toggled when the ball collides with a rectangle (within a given position)
 
-# Ball
+### Ball
 
 
-# Paddle
+### Paddle
 
 
-# Brick
+### Brick
 
 ## Imported Framework Classes
 
-# Game
+### Game
 
 The Game class is where you put the code to make the game do the things. The predefined member functions ```UpdateModel()``` and ```ComposeFrame()``` are where you put your game logic and your rendering code, respectively. Game is composed of the Graphics object used for drawing and keeps a reference to the MainWindow object to interface with the Windows system (which includes the keyboard and mouse inputs). 
 
-# Graphics
+### Graphics
 
 This class takes care of all the Direct3D setup and provides an interface to the graphical output of the application. Use Graphics to draw on the screen. ```PutPixel()``` is generally how this is gone about. You can also use ```Graphics::ScreenWidth``` etc. to make sure you keep your drawings inside the screen boundaries.
 
-# MainWindow
+### MainWindow
 
 Takes care of creating the window and handling the window messages. The message handling involves piping the mouse and keyboard messages to their respective objects. So you need to go through MainWindow to get your input done, à la ```wnd.mouse.Read()```. You can also use this class to figure out whether the main window is minimized or if it's out of focus, and you can kill the main window with ```wnd.Kill()```.
 
-# Keyboard
+### Keyboard
 
 With Keyboard, you can get the current state of depressed keys, and you can pop key press and release events out of an Event queue contained in Keyboard. You can also turn autorepeat on/off.
 
-# Mouse
+### Mouse
 
 With Mouse, you can get the current state of the mouse keys and the pointer position, and you can pop mouse events out of an Event queue contained in Mouse. You can also check whether the mouse is in the window client region.
 
-# Color
+### Color
 
 Color represents a 32-bit RGBA color value (or a single pixel if you like), and gives you member functions to access the packed channels. There is also a Colors namespace with predefined colors, like ```Colors::Aqua```. 
