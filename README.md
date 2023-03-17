@@ -31,10 +31,12 @@ A class that represents the idea of a rectangle. Utilises the vector class to ob
 
 ### Brick
 This class takes care of the drawing routine for bricks with the ```draw(Graphics& gfx)``` member function, which draws pixels to the screen over the given range with ```PutPixel()```. Also, a check for brick-ball collision and a total remaining brick check are defined here.
+The member function ```isOverlapping()``` checks for a ball to brick collision. If the ball is overlapping over any position in the 2D array of brick objects, the member variable ```destroyed``` is toggled and the ball vector is reflected depending on where the ball hit the brick.
 TODO: describe drawing routine in detail
 
 ### Ball
-The vector class is utilized here for the balls position and velocity, ```Vec2 pos``` and ```Vec2 vel```. 
+The vector class is utilized here for the balls position and velocity, ```Vec2 pos``` and ```Vec2 vel```. The position of the ball on the screen is determined by its velocity and time step in ```update(float dt)```. A collision is detected on the boundaries of the screen in ```wallBounce()```, which then reflects one of the ball vectors and repositions the ball ti within the screen to simulate the ball bouncing off of the wall.
+
 TODO: describe drawing routine in detail
 
 ### Paddle
